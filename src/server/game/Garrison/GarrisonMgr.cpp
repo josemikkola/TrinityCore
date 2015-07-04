@@ -270,7 +270,7 @@ std::list<GarrAbilityEntry const*> GarrisonMgr::RollFollowerAbilities(GarrFollow
             if ((*itr)->Flags & GARRISON_ABILITY_FLAG_EXCLUSIVE)
                 break;
 
-        while (traitList.size() < std::max<int32>(0, slots[1] - forcedTraits.size()) && total)
+        while (traitList.size() < size_t(std::max<int32>(0, slots[1] - forcedTraits.size())) && total)
         {
             auto itr = genericTraits.begin();
             std::advance(itr, urand(0, total-- - 1));
