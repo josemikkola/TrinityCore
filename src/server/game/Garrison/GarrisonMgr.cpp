@@ -161,7 +161,7 @@ std::list<GarrAbilityEntry const*> GarrisonMgr::RollFollowerAbilities(GarrFollow
 
     bool hasForcedExclusiveTrait = false;
     std::list<GarrAbilityEntry const*> result;
-    int32 slots[2] = { AbilitiesForQuality[quality][0], AbilitiesForQuality[quality][1] };
+    uint32 slots[2] = { AbilitiesForQuality[quality][0], AbilitiesForQuality[quality][1] };
 
     GarrAbilities const* abilities = nullptr;
     auto itr = _garrisonFollowerAbilities[faction].find(follower->ID);
