@@ -1,9 +1,9 @@
 #include "Pet.h"
 
-class Beastmaster_NPC : public CreatureScript
+class npc_beastmaster : public CreatureScript
 {
 public:
-    Beastmaster_NPC() : CreatureScript("Beastmaster_NPC") { }
+    npc_beastmaster() : CreatureScript("npc_beastmaster") { }
 
     bool OnGossipHello(Player * player, Creature * creature)
     {
@@ -260,7 +260,7 @@ public:
     }
 };
 
-void AddSC_Beastmaster_NPC()
+void AddSC_npc_beastmaster()
 {
-    new Beastmaster_NPC();
+    new npc_beastmaster();
 }

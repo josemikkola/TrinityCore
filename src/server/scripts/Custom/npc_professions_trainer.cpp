@@ -1,8 +1,8 @@
 #include "Language.h"
-class Professions_NPC : public CreatureScript
+class npc_professions_trainer : public CreatureScript
 {
 public:
-    Professions_NPC() : CreatureScript("Professions_NPC") { }
+    npc_professions_trainer() : CreatureScript("npc_professions_trainer") { }
     
     bool OnGossipHello(Player* player, Creature* creature)
     {
@@ -174,7 +174,7 @@ public:
     }
 };
 
-void AddSC_Professions_NPC()
+void AddSC_npc_professions_trainer()
 {
-    new Professions_NPC();
+    new npc_professions_trainer();
 }

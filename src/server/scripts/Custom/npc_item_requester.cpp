@@ -79,10 +79,10 @@ bool CanRequest(Player* player, Creature* creature, uint32 item)
     return true;
 };
 
-class Item_Requester_NPC : public CreatureScript
+class npc_item_requester : public CreatureScript
 {
 public:
-    Item_Requester_NPC() : CreatureScript("Item_Requester_NPC") {}
+    npc_item_requester() : CreatureScript("npc_item_requester") {}
 
     bool OnGossipHello(Player* player, Creature* creature)
     {
@@ -172,7 +172,7 @@ public:
     }
 };
 
-void AddSC_Item_Requester_NPC()
+void AddSC_npc_item_requester()
 {
-    new Item_Requester_NPC();
+    new npc_item_requester();
 }

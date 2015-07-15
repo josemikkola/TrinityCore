@@ -1,7 +1,7 @@
-class Vendor_NPC : public CreatureScript
+class npc_vendor : public CreatureScript
 {
 public:
-    Vendor_NPC() : CreatureScript("Vendor_NPC") { }
+    npc_vendor() : CreatureScript("npc_vendor") { }
 
     bool OnGossipHello(Player* player, Creature* creature)
     {
@@ -52,63 +52,12 @@ public:
     bool OnGossipSelect(Player* player, Creature* creature, uint32 sender, uint32 action)
     {
         player->PlayerTalkClass->ClearMenus();
-
-        switch (action)
-        {
-        case 110000: // Classic.
-            player->ADD_GOSSIP_ITEM(5, "Cloth.", GOSSIP_SENDER_MAIN, 110010);
-            player->ADD_GOSSIP_ITEM(5, "Leather.", GOSSIP_SENDER_MAIN, 110011);
-            player->ADD_GOSSIP_ITEM(5, "Mail.", GOSSIP_SENDER_MAIN, 110012);
-            player->ADD_GOSSIP_ITEM(5, "Plate.", GOSSIP_SENDER_MAIN, 110013);
-            player->PlayerTalkClass->SendGossipMenu(creature->GetEntry(), creature->GetGUID());
-            break;
-        case 110001: // The Burning Crusade.
-            player->ADD_GOSSIP_ITEM(5, "Cloth.", GOSSIP_SENDER_MAIN, 110020);
-            player->ADD_GOSSIP_ITEM(5, "Leather.", GOSSIP_SENDER_MAIN, 110021);
-            player->ADD_GOSSIP_ITEM(5, "Mail.", GOSSIP_SENDER_MAIN, 110022);
-            player->ADD_GOSSIP_ITEM(5, "Plate.", GOSSIP_SENDER_MAIN, 110023);
-            player->PlayerTalkClass->SendGossipMenu(creature->GetEntry(), creature->GetGUID());
-            break;
-        case 110002: // Wrath of the Lich King
-            player->ADD_GOSSIP_ITEM(5, "Cloth.", GOSSIP_SENDER_MAIN, 110030);
-            player->ADD_GOSSIP_ITEM(5, "Leather.", GOSSIP_SENDER_MAIN, 110031);
-            player->ADD_GOSSIP_ITEM(5, "Mail.", GOSSIP_SENDER_MAIN, 110032);
-            player->ADD_GOSSIP_ITEM(5, "Plate.", GOSSIP_SENDER_MAIN, 110033);
-            player->PlayerTalkClass->SendGossipMenu(creature->GetEntry(), creature->GetGUID());
-            break;
-        case 110010: // Classic - Cloth.
-            player->ADD_GOSSIP_ITEM(5, "Head I.", GOSSIP_SENDER_MAIN, 120000);
-            player->ADD_GOSSIP_ITEM(5, "Head II.", GOSSIP_SENDER_MAIN, 120001);
-            player->ADD_GOSSIP_ITEM(5, "Shoulders I.", GOSSIP_SENDER_MAIN, 120002);
-            player->ADD_GOSSIP_ITEM(5, "Shoulders II.", GOSSIP_SENDER_MAIN, 120003);
-            player->ADD_GOSSIP_ITEM(5, "Chest I.", GOSSIP_SENDER_MAIN, 120004);
-            player->ADD_GOSSIP_ITEM(5, "Waist I.", GOSSIP_SENDER_MAIN, 120005);
-            player->ADD_GOSSIP_ITEM(5, "Waist II.", GOSSIP_SENDER_MAIN, 120006);
-            player->ADD_GOSSIP_ITEM(5, "Legs I.", GOSSIP_SENDER_MAIN, 120007);
-            player->ADD_GOSSIP_ITEM(5, "Legs II.", GOSSIP_SENDER_MAIN, 120008);
-            player->ADD_GOSSIP_ITEM(5, "Feet I.", GOSSIP_SENDER_MAIN, 120009);
-            player->ADD_GOSSIP_ITEM(5, "Feet II.", GOSSIP_SENDER_MAIN, 120010);
-            player->ADD_GOSSIP_ITEM(5, "Bracers I.", GOSSIP_SENDER_MAIN, 120011);
-            player->ADD_GOSSIP_ITEM(5, "Bracers II.", GOSSIP_SENDER_MAIN, 120012);
-            player->ADD_GOSSIP_ITEM(5, "Hands I.", GOSSIP_SENDER_MAIN, 120013);
-            player->ADD_GOSSIP_ITEM(5, "Hands II.", GOSSIP_SENDER_MAIN, 120014);
-            player->ADD_GOSSIP_ITEM(5, "Back I.", GOSSIP_SENDER_MAIN, 120015);
-            player->ADD_GOSSIP_ITEM(5, "Back II.", GOSSIP_SENDER_MAIN, 120016);
-            player->ADD_GOSSIP_ITEM(5, "Back III.", GOSSIP_SENDER_MAIN, 120017);
-            player->ADD_GOSSIP_ITEM(5, "Robe I.", GOSSIP_SENDER_MAIN, 120018);
-            player->ADD_GOSSIP_ITEM(5, "Robe II.", GOSSIP_SENDER_MAIN, 120019);
-            player->PlayerTalkClass->SendGossipMenu(creature->GetEntry(), creature->GetGUID());
-            break;
-        default:
-            player->PlayerTalkClass->ClearMenus();
-            player->GetSession()->SendListInventory(creature->GetGUID(), action);
-            break;
-        }
-        return true;
+		player->GetSession()->SendListInventory(creature->GetGUID(), action);
+		return true;
     }
 };
 
-void AddSC_Vendor_NPC()
+void AddSC_npc_vendor()
 {
-    new Vendor_NPC();
+    new npc_vendor();
 }
