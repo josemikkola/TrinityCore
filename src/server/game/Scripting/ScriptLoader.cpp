@@ -1418,6 +1418,17 @@ void AddBattlegroundScripts()
 #ifdef SCRIPTS
 /* This is where custom scripts' loading functions should be declared. */
 
+void AddSC_PWS_Transmogrification();
+void AddSC_CS_Transmogrification();
+void AddSC_npc_item_requester();
+void AddSC_npc_professions_trainer();
+void AddSC_npc_beastmaster();
+void AddSC_npc_vendor();
+void AddSC_npc_teleporter();
+void AddSC_npc_enchantments();
+void AddSC_OnLogin_PlayerScript();
+void AddSC_OnDuelStart_PlayerScript();
+void AddSC_OnDuelEnd_PlayerScript();
 #endif
 
 void AddCustomScripts()
@@ -1425,5 +1436,16 @@ void AddCustomScripts()
 #ifdef SCRIPTS
     /* This is where custom scripts should be added. */
 
+    AddSC_PWS_Transmogrification();
+    AddSC_CS_Transmogrification();
+	AddSC_npc_item_requester();
+	AddSC_npc_professions_trainer();
+	AddSC_npc_beastmaster();
+	AddSC_npc_vendor();
+	AddSC_npc_teleporter();
+	AddSC_npc_enchantments();
+	AddSC_OnLogin_PlayerScript();
+	AddSC_OnDuelStart_PlayerScript();
+	AddSC_OnDuelEnd_PlayerScript();
 #endif
 }
